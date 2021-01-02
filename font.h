@@ -40,20 +40,19 @@ typedef struct{
 	u32 width;
 	u32 byteperpixel;
 	u8 *map;
-}bitmap;
+} bitmap;
 
 typedef struct{
 	stbtt_fontinfo *info;
 	u8 *buffer;
 	float scale;
-}font;
+} font;
 
-//lcd设备结构体
+//lcd设备
 struct LcdDevice
 {
 	int fd;
 	unsigned int *mp; //保存映射首地址
-
 };
 
 
@@ -73,7 +72,7 @@ bitmap *createBitmapWithInit(u32 width, u32 height, u32 byteperpixel, color c);
 void fontPrint(font *f, bitmap *screen, s32 x, s32 y, char *text, color c, s32 maxWidth);
 
 //5.把输出框的所有信息显示到LCD屏幕中 
-void show_font_to_lcd(unsigned int *p,int px,int py,bitmap *bm);
+void show_font_to_lcd(unsigned int *p,int px,int py, bitmap *bm);
 
 // 关闭字体库
 void fontUnload(font *f);
